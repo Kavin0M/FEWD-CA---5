@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 1rem 0;
+    padding: 1rem .5rem;
+    box-shadow: 0 5px 5px 0 black;
+}
+
+#name{
+    font-size: 32px;
+    font-weight: 600;
+    color: red;
+}
+
+#btn{
+    border: 2px solid black;
+    color: red;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+input{
+    width: 500px;
+    height: 32px;
+    font-size: 16px;
+    padding: 0 .5rem;
+}
+
+#book-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 32px;
+    margin: 2rem 1rem;
+}
+
+.book{
+    width: 200px;
+    height: 300px;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    margin: 1rem 0;
+}
+
+.title{
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    max-height: 50px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.subtitle{
+    color: gray;
+}
+
+.cost{
+    margin: 0 1rem;
+}
+
+.book-img{
+    height: 250px;
+    width: 200px;
+}
+
+.error-msg{
+    font-weight: 600;
+    font-size: 32px;
+    color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#form-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid black;
+    padding: 2rem 0;
+    box-shadow: 10px 10px black;
+}
+
+form, #form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-container input{
+    margin: 1rem;
+}
+
+#form-container button{
+    padding: 0.5rem 1rem;
+}
+
+#form-container button:hover{
+    transform: translate(-3px,-3px);
+    box-shadow: 3px 3px black;
+}
+
+#form-container button:active{
+    transform: translate(0,0);
+    box-shadow: 0 0;
+}
+
+.error{
+    color: red;
+    margin: 0 1rem;
+}
+
+#success{
+    border: 2px solid rgb(2, 255, 2);
+    background-color: rgb(0, 255, 0, 40%);
+    text-align: center;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    margin: 1rem 0;
+    width: 520px;
+}
+
+a{
+    text-decoration: none;
+}

@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="app">
       <div id="navbar">
-        <div id="name">Kalvium Books</div>
+        <div id="name">Kalvium <span id='special'>Books</span></div>
         <input type="text" onChange={(e) => setSeatch(e.target.value)} placeholder='Search books'/>
         {login ? (<div id='btn'>{login}</div>) : (<Link to="/register"><div id="btn">Register</div></Link>)}
       </div>

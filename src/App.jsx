@@ -1,26 +1,32 @@
 import './App.css'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import {Routes, Route, Link} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
+import { fetchDataFunction } from './redux/actionType'
 import BookContainer from './components/BookContainer'
 import FormWindow from './components/Form'
-import {Routes, Route, Link} from 'react-router-dom'
 
 function App() {
-  const [data, setData] = useState([])
   const [search, setSeatch] = useState("")
   const [login, setLogin] = useState(false)
 
-  useEffect(() => {
+  const data = useSelector(store => store.data)
+  const dispatch = useDispatch()
+  
+  useEffect(() => fetchData(search),[search])
+
+  const fetchData = (search) => {
     axios
     .post("https://reactnd-books-api.udacity.com/search",{query: search, maxResults: 20},{headers: { 'Authorization': 'whatever-you-want' }})
-    .then(res => setData(res.data.books))
+    .then(res => dispatch(fetchDataFunction(res.data.books)))
     .catch(fetchBook)
-  },[search])
+  }
 
   const fetchBook = () => {
     axios
     .get("https://reactnd-books-api.udacity.com/books", {headers: { 'Authorization': 'whatever-you-want' }})
-    .then(res => setData(res.data.books))
+    .then(res => dispatch(fetchDataFunction(res.data.books)))
     .catch(err => console.log(err))
   }
 

@@ -1,13 +1,16 @@
-import { fetchData } from "./action"
+import { fetchData, userData } from "./action"
 
 const intitalState = {
-    data: []
+    data: [],
+    userData: {}
 }
 
 const reducer = (state=intitalState, action) => {
     switch(action.type){
         case fetchData:
-            return {data: action.payload}
+            return {...state, data: action.payload}
+        case userData:
+            return {...state, userData: action.payload}
         default:
             return state
     }

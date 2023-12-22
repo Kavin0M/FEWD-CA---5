@@ -1,9 +1,16 @@
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import { useState } from 'react'
 import {Link} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
+import { userDataFunction } from '../redux/actionType'
 
 
 function FormWindow(props) {
+
+    const userData = useSelector(store => store.userData)
+    console.log("store: ",userData)
+    
+    const dispatch = useDispatch()
 
     const [submit,setSubmit] = useState(false)
     const [change,setChange] = useState(false)
@@ -54,6 +61,9 @@ function FormWindow(props) {
         props.onRegister(values.username)
         setSubmit(true)
         setChange(true)
+
+        const details = {"username" : values.username, "email" : values.email, "password" : values.password}
+        dispatch(userDataFunction(details))
     }
 
   return (
